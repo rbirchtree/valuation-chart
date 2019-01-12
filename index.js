@@ -2,13 +2,13 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-
+const {DATABASE_URL} =  require('./config');
 const app = express();
 
 app.use(express.static(path.join(__dirname,'client/build')));
 
 app.get('/api/oil-field-valuation',(req,res) =>{
-	res.send(200);
+	res.sendStatus(200);
 });
 
 app.get('*',(req,res) => {
