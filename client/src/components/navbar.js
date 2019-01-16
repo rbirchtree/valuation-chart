@@ -6,7 +6,6 @@ export default function navbar() {
 		<nav>
 			<Link to="/">Valuation</Link>
 			<ul>
-			 <li><NavLink exact to="/">Home</NavLink></li>
 			 <li><NavLink exact to="/about">About</NavLink></li>
 			 <li><NavLink exact to="/chart">Chart</NavLink></li>
 			</ul>
