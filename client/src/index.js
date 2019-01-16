@@ -2,17 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {rootReducers} from './reducers/rootReducers.js';
+import {rootReducers} from './reducers';
 // can't find module
 //
 import './index.css';
 import App from './App';
 
-const store = createStore(rootReducers);
-
-
-
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(<Provider store={createStore(rootReducers)}>
 					<App />
 				</Provider>, 
 document.getElementById('root'));

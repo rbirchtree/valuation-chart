@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import {UPDATE_PRODUCTION, UPDATE_PRICE} from '../actions';
 
-
-export default function ReactChart(){
+class FormData extends React.Component{
+	
+	render(){
 	return (
 		<form onSubmit={e => e.preventDefault()}>
 			<div className="grid-container">
@@ -20,7 +22,7 @@ export default function ReactChart(){
 					Year 1
 				</div>
 				<div className="grid-items">
-					<input type="number" id="price"/>
+					<input type="number" id="price" min="0"/>
 				</div>
 				<div className="grid-items">
 					<input type="number" id="production"/>
@@ -49,19 +51,16 @@ export default function ReactChart(){
 			<button></button>
 		</form>
 	)
+	}
 };
 
 
-{/* set-up data
-{id:0, price: 60.00, production: 0},
-	{id:1, price: 60.00, production: 100},
-	{id:2, price: 50.00, production: 10},
-	{id:3, price: 20.00, production: 10},
-	{id:4, price: 40.00, production: 10},
-	{id:5, price: 70.00, production: 100},
-	{id:6, price: 70.00, production: 100},
-	{id:7, price: 90.00, production: 110},
-	{id:8, price: 80.00, production: 90},
-	{id:9, price: 60.00, production: 60}]
-	https://www.w3schools.com/css/tryit.asp?filename=trycss_grid
-	*/}
+//stephen grider review react-redux
+//thinkful
+const mapStateToProps = (state) => {
+	console.log('state',state)
+	return state
+}
+
+
+export default connect(mapStateToProps)(FormData)

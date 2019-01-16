@@ -1,4 +1,4 @@
-import {UPDATE_PRODUCTION, UPDATE_PRICE} from '../actions/actions.js';
+import {UPDATE_PRODUCTION, UPDATE_PRICE} from '../actions';
 
 const initState = {
 	years: [
@@ -21,4 +21,5 @@ const initState = {
 	if(action.type === UPDATE_PRICE){
 
 	}
+	return state;
 };
