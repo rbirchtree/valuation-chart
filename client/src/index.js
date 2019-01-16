@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-// import reducers later
-
+import {Provider} from 'react-redux';
+import {rootReducers} from './reducers/rootReducers.js';
+// can't find module
+//
 import './index.css';
 import App from './App';
 
+const store = createStore(rootReducers);
+
+
+
 ReactDOM.render(<Provider store={store}>
-	<App />
-	</Provider>, 
+					<App />
+				</Provider>, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
