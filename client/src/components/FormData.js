@@ -22,7 +22,7 @@ class FormData extends React.Component{
 					Year 1
 				</div>
 				<div className="grid-items">
-					<input type="number" id="price" min="0"/>
+					<input type="number" id="price" min="0" value={props}/>
 				</div>
 				<div className="grid-items">
 					<input type="number" id="production"/>

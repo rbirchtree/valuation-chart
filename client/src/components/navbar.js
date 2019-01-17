@@ -7,7 +7,7 @@ export default function navbar() {
 			<Link to="/">Valuation</Link>
 			<ul>
 			 <li><NavLink exact to="/about">About</NavLink></li>
-			 <li><NavLink exact to="/chart">Chart</NavLink></li>
+			 <li><NavLink exact to="/demo">Demo Chart</NavLink></li>
 			</ul>
 		</nav>
 	)	
