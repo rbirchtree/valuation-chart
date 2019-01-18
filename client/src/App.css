@@ -11,3 +11,14 @@
   font-size: 30px;
   text-align: center;
 }
+
+.headers {
+	display: inline-block;
+	width:32%;
+}
+
+.price, .production, .year {
+	display: inline-block;
+	width:32%;
+}
+
