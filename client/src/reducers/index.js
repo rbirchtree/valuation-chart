@@ -18,7 +18,17 @@ const initState = {
 	console.log('action',action)
 	console.log('action production',action.production)
 	if(action.type === UPDATE_PRODUCTION){
+		//find by id and update
+		let newProduction = state.years.find(year => year.id === action.id)
+		newProduction = newProduction.production+5
+		console.log('new Production',newProduction)
 		console.log('success', action.type)
+		console.log('action.id',action.id)
+		console.log('state reducer',state)
+		//increment by 1
+		return {
+			...state
+		}
 	}
 	if(action.type === UPDATE_PRICE){
 
