@@ -66,7 +66,6 @@ class FormData extends React.Component{
 //stephen grider review react-redux
 //thinkful
 const mapStateToProps = (state) => {
-	console.log('state',state.years)
 	return {years: state.years}
 }
 
