@@ -15,8 +15,10 @@ const initState = {
 };
 
  export const rootReducers = (state=initState,action) =>{
+	console.log('state',state)
+	console.log('action',action)
 	if(action.type === UPDATE_PRODUCTION){
-
+		console.log('success', action.type)
 	}
 	if(action.type === UPDATE_PRICE){
 

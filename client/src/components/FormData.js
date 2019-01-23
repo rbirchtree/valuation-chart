@@ -1,20 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
-import {UPDATE_PRODUCTION, UPDATE_PRICE} from '../actions';
+
+import { updateProduction, updatePrice } from '../actions';
 
 class FormData extends React.Component{
 	//render a form :) use renderList
 	//test passing props into form
 	//we have headers but no button
-	
+	changeProduction = () => {
+		this.props.updateProduction()
+	};
+
+	changePrice =  () => {
+		this.props.updatePrice()
+	}
+
 	renderForm(){
 		return this.props.years.map((year,index) => {
 			return (
 				<li key={index}><span className="year">{index}</span>
 				   <input className="production" type="number" value={year.production}
-				   /> 
-				   <input className="price" type="number" value={year.price}/>
+				   onChange={this.changeProduction}/> 
+				   <input className="price" type="number" value={year.price} onChange={this.changePrice}/>
 				 </li>
 				)
 		});
@@ -41,7 +49,7 @@ class FormData extends React.Component{
 				{this.renderForm()}
 				Total Revenue ${this.totalValue()}
 			</ul>
-			<label for="email">Enter your email for a consult:</label>
+			<label htmlFor="email">Enter your email for a consult:</label>
 			<input type="email"/>
 			<button>Submit</button>
 		</form>
@@ -57,5 +65,12 @@ const mapStateToProps = (state) => {
 	return {years: state.years}
 }
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		updateProduction: () => {dispatch(updateProduction())}
+	}
+}
 
-export default connect(mapStateToProps)(FormData)
+//mapping dummmy dispatch
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormData)
