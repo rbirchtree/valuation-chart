@@ -8,8 +8,12 @@ class FormData extends React.Component{
 	//render a form :) use renderList
 	//test passing props into form
 	//we have headers but no button
-	changeProduction = () => {
-		this.props.updateProduction()
+	changeProduction = (index) => {
+		let newProduction = this.props.years[index].production;
+		console.log('what is this props',this.props.years[index].production)
+		console.log('what is this index value',index)
+		this.props.updateProduction(index, newProduction)
+		//pass index and this.props.year
 	};
 
 	changePrice =  () => {
@@ -21,8 +25,9 @@ class FormData extends React.Component{
 			return (
 				<li key={index}><span className="year">{index}</span>
 				   <input className="production" type="number" value={year.production}
-				   onChange={this.changeProduction}/> 
+				   onChange={ () => this.changeProduction(index)}/> 
 				   <input className="price" type="number" value={year.price} onChange={this.changePrice}/>
+				   {year.id}
 				 </li>
 				)
 		});
@@ -67,7 +72,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		updateProduction: () => {dispatch(updateProduction())}
+		updateProduction: (index,newProduction) => {dispatch(updateProduction(index,newProduction))}
 	}
 }
 
