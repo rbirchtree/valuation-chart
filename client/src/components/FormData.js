@@ -5,19 +5,15 @@ import {connect} from 'react-redux';
 import { updateProduction, updatePrice } from '../actions';
 
 class FormData extends React.Component{
-	//render a form :) use renderList
-	//test passing props into form
-	//we have headers but no button
+	
 	changeProduction = (index) => {
 		let newProduction = this.props.years[index].production;
-		console.log('what is this props',this.props.years[index].production)
-		console.log('what is this index value',index)
 		this.props.updateProduction(index, newProduction)
-		//pass index and this.props.year
 	};
 
-	changePrice =  () => {
-		this.props.updatePrice()
+	changePrice =  (index) => {
+		let newPrice = this.props.years[index].price;
+		this.props.updatePrice( index, newPrice)
 	}
 
 	renderForm(){
@@ -26,8 +22,8 @@ class FormData extends React.Component{
 				<li key={index}><span className="year">{index}</span>
 				   <input className="production" type="number" value={year.production}
 				   onChange={ () => this.changeProduction(index)}/> 
-				   <input className="price" type="number" value={year.price} onChange={this.changePrice}/>
-				   {year.id}
+				   <input className="price" type="number" value={year.price} 
+				   onChange={ () => this.changePrice(index)}/>
 				 </li>
 				)
 		});
@@ -38,12 +34,9 @@ class FormData extends React.Component{
 		this.props.years.map((year) => {
 			 sum += year.price * year.production
 		})
-		return sum;
+		return sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 
-	//just render a list
-	//make ul and li
-	//work on styling later
 	render(){
 	return (
 		<form onSubmit={e => e.preventDefault()}>
@@ -71,7 +64,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		updateProduction: (index,newProduction) => {dispatch(updateProduction(index,newProduction))}
+		updateProduction: (index,newProduction) => {dispatch(updateProduction(index,newProduction))},
+		updatePrice: (index, newPrice) => {dispatch(updatePrice(index,newPrice))}
 	}
 }
 

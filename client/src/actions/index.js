@@ -1,7 +1,8 @@
 export const UPDATE_PRICE = 'UPDATE_PRICE';
-export const updatePrice= price => ({
+export const updatePrice= (id,price) => ({
 	type: UPDATE_PRICE,
-	price
+	price,
+	id
 });
 
 export const UPDATE_PRODUCTION = 'UPDATE_PRODUCTION';

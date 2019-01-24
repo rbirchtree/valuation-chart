@@ -24,14 +24,14 @@ const initState = {
 
 		return Object.assign({}, state, {years : updatedProduction});
 	};
-
+	
 	if(action.type === UPDATE_PRICE){
-		let updatedPrice = state.years.map((year)=> {
-			return (year.id === action.id)
-			? {id:year.id, price:year.price+1, production: year.production}
-			: year
-		});
-		return Object.assign({},state,{years: updatedPrice})
+		let updatedPrice = state.years.map((year)=>{
+                 return (year.id === action.id) 
+                      ? {id:year.id, price:year.price+1, production:year.production}
+                      : year
+                 })
+		return Object.assign({},state,{years: updatedPrice});
 	}
 	return state;
 };
