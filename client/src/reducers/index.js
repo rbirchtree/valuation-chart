@@ -20,7 +20,7 @@ const initState = {
                      return (year.id === action.id) 
                           ? {id:year.id, price:year.price, production:year.production+5}
                           : year
-                     })
+                     });
 
 		return Object.assign({}, state, {years : updatedProduction});
 	};
@@ -30,7 +30,7 @@ const initState = {
                  return (year.id === action.id) 
                       ? {id:year.id, price:year.price+1, production:year.production}
                       : year
-                 })
+                 });
 		return Object.assign({},state,{years: updatedPrice});
 	}
 	return state;
